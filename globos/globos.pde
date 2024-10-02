@@ -1,6 +1,9 @@
+PImage moneda; 
+
 class Globo
 {
   float x, y,vx,vy;
+  PImage fondo;
   Globo (float _x, float _y)
   {
    x=_x;
@@ -17,7 +20,10 @@ class Globo
 
   void dibujate()
   {
-      ellipse(x,y,100,200);
+      ellipse(x,y,100,130);
+      imageMode(CENTER);
+      image(fondo,x,y,90,120);
+      line(x,y+100,x,y+130);
   }
   
 }
@@ -29,6 +35,7 @@ void setup()
 {
   size(640,480);
   globos = new ArrayList<Globo>();  
+  moneda = loadImage("descarga.png");
 }
 
 void draw()
@@ -44,4 +51,6 @@ void draw()
 void mousePressed()
 {
   globos.add(new Globo(mouseX,mouseY));
+  globos.add(new moneda(mouseX,mouseY));
+  
 }
