@@ -11,8 +11,8 @@ class Globo
 
   void update()
   {
-    y+=vy;
-    x+=vx;
+    //y+=vy;
+    //x+=vx;
   }
 
   void dibujate()
