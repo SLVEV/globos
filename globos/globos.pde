@@ -14,8 +14,8 @@ class Globo
 
   void update()
   {
-    y+=vy;
-    x+=vx;
+    //y+=vy;
+    //x+=vx;
   }
 
   void dibujate()
@@ -40,7 +40,7 @@ void setup()
 
 void draw()
 {
-  background(150,50,40);
+  background(255,0,0);
   for(int i=0;i<globos.size();i++)
   {
     globos.get(i).update();
