@@ -1,9 +1,12 @@
-//PImage moneda; 
+import ddf.minim.*;
+
+PImage moneda,Escudo,circo;
+Minim minim;
+AudioSample player;
 
 class Globo
 {
   float x, y,vx,vy;
-  //PImage fondo;
   Globo (float _x, float _y)
   {
    x=_x;
@@ -14,15 +17,15 @@ class Globo
 
   void update()
   {
-    //y+=vy;
-    //x+=vx;
+    y+=2*vy;
+    x+=2*vx;
   }
 
   void dibujate()
   {
       ellipse(x,y,100,130);
       imageMode(CENTER);
-      //image(fondo,x,y,90,120);
+      image(moneda,x,y,90,120);
       line(x,y+100,x,y+130);
   }
   
@@ -33,14 +36,21 @@ ArrayList<Globo> globos;
 
 void setup()
 {
-  size(640,480);
+  size(701,480);
   globos = new ArrayList<Globo>();  
-  //moneda = loadImage("descarga.png");
+  moneda = loadImage("bich.png");
+  Escudo = loadImage("Escudo3.png");
+  circo = loadImage("circo.jpg");
+  image(Escudo,0,0);
+  minim = new Minim(this);
+  player = minim.loadSample("Suuu.mp3");
 }
 
 void draw()
 {
-  background(255,0,0);
+  background(circo);
+  //background(255,0,0);
+  
   for(int i=0;i<globos.size();i++)
   {
     globos.get(i).update();
@@ -51,6 +61,7 @@ void draw()
 void mousePressed()
 {
   globos.add(new Globo(mouseX,mouseY));
+  player.trigger();
   
   
 }
