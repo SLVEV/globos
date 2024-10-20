@@ -1,6 +1,6 @@
 import ddf.minim.*;
 
-PImage moneda,Escudo,circo;
+PImage Escudo,circo,moneda;
 Minim minim;
 AudioSample player;
 
@@ -32,14 +32,18 @@ class Globo
 }
 
 ArrayList<Globo> globos;
+ArrayList<PImage> Imagenes;
+
 
 
 void setup()
 {
   size(701,480);
-  globos = new ArrayList<Globo>();  
+  globos = new ArrayList<Globo>();
+  Imagenes = new ArrayList<PImage>();
+  
   moneda = loadImage("bich.png");
-  Escudo = loadImage("Escudo3.png");
+  Escudo = loadImage("Escudo3.jpg");
   circo = loadImage("circo.jpg");
   image(Escudo,0,0);
   minim = new Minim(this);
@@ -48,7 +52,7 @@ void setup()
 
 void draw()
 {
-  background(circo);
+  background(Escudo);
   //background(255,0,0);
   
   for(int i=0;i<globos.size();i++)
